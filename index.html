@@ -366,8 +366,8 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
   </svg>
 
   <section class="hero" aria-label="Welcome">
-    <img class="poster" src="assets/hero-poster.webp" alt="" width="720" height="1080">
-    <video id="heroVid" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+    <img class="poster" src="assets/hero-poster.webp" alt="" width="720" height="1080" fetchpriority="high">
+    <video id="heroVid" muted loop playsinline preload="none" aria-hidden="true"></video>
     <div class="wrap hero-copy">
       <h1 class="rise">Your hair, in <em>perfect</em> hands.</h1>
       <p class="rise">Braids, makeup, our own hair care range, and handmade crochet and macramé, done with care in our Ayi Mensah studio.</p>
@@ -594,9 +594,17 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
   if (reduce) { toggle.hidden = true; vid.remove(); }
   else {
     vid.poster = poster;
-    vid.src = wide ? "assets/hero-wide.mp4" : "assets/hero-tall.mp4";
-    const p = vid.play(); if (p) p.then(() => setToggle(true), () => setToggle(false));
-    toggle.addEventListener("click", () => { if (vid.paused) { vid.play(); setToggle(true); } else { vid.pause(); setToggle(false); } });
+    // Save-Data or 2G: keep the still image until the visitor taps play
+    const conn = navigator.connection || {};
+    const lite = !!conn.saveData || /2g$/.test(conn.effectiveType || "");
+    const start = () => {
+      if (!vid.getAttribute("src")) vid.src = wide ? "assets/hero-wide.mp4" : "assets/hero-tall.mp4";
+      const p = vid.play(); if (p) p.then(() => setToggle(true), () => setToggle(false));
+    };
+    toggle.addEventListener("click", () => { if (vid.paused) start(); else { vid.pause(); setToggle(false); } });
+    if (lite) setToggle(false);
+    else if (document.readyState === "complete") start();
+    else addEventListener("load", start, { once: true }); // after the page's own content, so the video doesn't compete with it
   }
 
   /* mobile menu */
