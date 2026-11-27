@@ -318,6 +318,15 @@ input[aria-invalid="true"] { border-color: #F2B8B5; }
 .other-date { max-width: 260px; }
 .preview { background: rgba(255,248,245,.07); border: 1px solid rgba(226,192,138,.25); border-radius: 18px 18px 18px 4px; padding: 14px 16px; }
 .preview p { margin: 6px 0 0; white-space: pre-line; font-size: 15px; line-height: 1.55; color: var(--ink); }
+.finish { display: grid; gap: 30px; }
+.progress { display: grid; gap: 10px; font-size: 13px; letter-spacing: .04em; color: var(--ink-2); }
+.progress i { display: block; height: 3px; border-radius: 3px; background: rgba(226,192,138,.2); overflow: hidden; }
+.progress b { display: block; height: 100%; width: 25%; background: var(--champ); transition: width .35s; }
+.step:focus { outline: none; }
+.step-nav { display: flex; gap: 12px; }
+.step-nav .btn { flex: 1; }
+.book-card .btn.line-light { background: transparent; border-color: rgba(226,192,138,.5); color: var(--ink); }
+.book-card .btn.line-light:hover { background: rgba(255,248,245,.08); }
 .form-foot { display: grid; gap: 12px; }
 .form-foot .btn { width: 100%; }
 .form-foot small { color: var(--ink-2); font-size: 13px; }
@@ -557,6 +566,7 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
           </div>
         </div>
         <form id="bookForm" novalidate>
+          <div class="progress" id="progress" hidden><span id="stepCount" aria-live="polite"></span><i><b id="progressBar"></b></i></div>
           <fieldset class="step">
             <legend><span aria-hidden="true">1</span>What would you like?</legend>
             <div class="field"><label for="fService" class="sr">Service</label><select id="fService"></select></div>
@@ -582,6 +592,11 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
               <textarea id="fNotes" rows="3" placeholder="Length, color, inspiration photos, event date…"></textarea>
             </div>
           </fieldset>
+          <div class="step-nav" id="stepNav" hidden>
+            <button type="button" class="btn line-light" id="prevStep">Back</button>
+            <button type="button" class="btn" id="nextStep">Next</button>
+          </div>
+          <div class="finish" id="finish">
           <div class="preview" aria-live="polite">
             <span class="lbl">Your WhatsApp message</span>
             <p id="msgPreview"></p>
@@ -589,6 +604,7 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
           <div class="form-foot">
             <a class="btn" id="sendWa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg>Send on WhatsApp</a>
             <small>Opens WhatsApp with this message ready. Nothing is sent until you press send there.</small>
+          </div>
           </div>
         </form>
       </div>
@@ -737,6 +753,26 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
     nameIn.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" }); nameIn.focus({ preventScroll: true });
   });
   try { dateIn.min = new Date().toISOString().slice(0, 10); } catch (e) {}
+
+  /* stepper: one question at a time with Back/Next. Without JS every step shows at once. */
+  const steps = $$(".step", form), prevBtn = $("#prevStep"), nextBtn = $("#nextStep"), finish = $("#finish");
+  let cur = 0;
+  const show = (i, focus) => {
+    cur = i;
+    steps.forEach((st, j) => st.hidden = j !== i);
+    const last = i === steps.length - 1;
+    prevBtn.hidden = i === 0; nextBtn.hidden = last; finish.hidden = !last;
+    $("#stepCount").textContent = `Step ${i + 1} of ${steps.length}`;
+    $("#progressBar").style.width = `${(i + 1) / steps.length * 100}%`;
+    if (focus) {
+      steps[i].tabIndex = -1; steps[i].focus({ preventScroll: true });
+      if (form.getBoundingClientRect().top < 0) form.scrollIntoView({ block: "start", behavior: reduce ? "auto" : "smooth" });
+    }
+  };
+  prevBtn.addEventListener("click", () => show(cur - 1, true));
+  nextBtn.addEventListener("click", () => show(cur + 1, true));
+  $("#progress").hidden = false; $("#stepNav").hidden = false;
+  show(0);
   update();
 
   /* nav + sticky booking bar */
