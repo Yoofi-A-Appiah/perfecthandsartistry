@@ -154,12 +154,12 @@ main > section, main > footer, main > div { position: relative; z-index: 1; }
 /* welcome note from the founder */
 .welcome { padding-block: 64px 56px; }
 .welcome-in { display: grid; gap: 26px; align-items: center; max-width: 1100px; }
-.founder { margin: 0; width: 190px; aspect-ratio: 4/5; border-radius: 999px 999px 14px 14px; overflow: hidden; box-shadow: 0 0 0 6px var(--card), 0 0 0 7px var(--gold); }
+.founder { margin: 0; justify-self: center; width: 190px; aspect-ratio: 4/5; border-radius: 999px 999px 14px 14px; overflow: hidden; box-shadow: 0 0 0 6px var(--card), 0 0 0 7px var(--gold); }
 .founder img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
 .welcome p { font: 400 clamp(22px, 2.4vw, 34px)/1.35 var(--display); margin: 0; }
 .welcome .sig { font: 400 clamp(48px, 5vw, 68px)/1 var(--script); color: var(--berry); margin: 14px 0 22px; }
 .welcome small { display: block; font-size: 13px; color: var(--ink-2); }
-@media (min-width: 760px) { .welcome-in { grid-template-columns: auto 1fr; gap: 48px; } .founder { width: 300px; } }
+@media (min-width: 760px) { .welcome-in { grid-template-columns: auto 1fr; gap: 48px; } .founder { width: 300px; justify-self: start; } }
 
 /* section heads */
 .sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 60px; margin-bottom: 28px; }
@@ -618,7 +618,7 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
 (() => {
   /* ===== Edit your details here ===== */
   const WA = "233262021141"; // WhatsApp number: country code, no + or spaces
-  const HOURS = { 0: [13, 18], 1: null, 2: [9, 19], 3: [9, 19], 4: [9, 19], 5: [9, 20], 6: [8, 20] }; // day: [open, close] 24h; null = closed
+  const HOURS = { 0: [13, 18], 1: null, 2: [8, 19], 3: [8, 19], 4: [8, 19], 5: [8, 20], 6: [8, 20] }; // day: [open, close] 24h; null = closed
   const SERVICES = ["Braids & hair", "Makeup", "Crochet", "Macramé bags, sandals & accessories", "Hair care products", "Training course", "Not sure yet"];
   const REVIEWS = [
     ["If there were 10 stars, that's the rate I would have given. The products, professionalism, knowledge, customer service and passion for her art is beyond what I've ever experienced.", "Empress Roni", "Google review"],
