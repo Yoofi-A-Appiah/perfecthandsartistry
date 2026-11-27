@@ -290,20 +290,39 @@ main > section, main > footer, main > div { position: relative; z-index: 1; }
 .hours dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 22px; margin: 0; font-size: 14px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
 .hours dt { color: var(--ink); } .hours dd { margin: 0; }
 .hours .today { color: var(--champ); }
-form { display: grid; gap: 20px; align-content: start; }
-.field { display: grid; gap: 6px; min-width: 0; }
-label, .lbl { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold-text); }
-input, select, textarea { font: 400 17px var(--body); color: var(--ink); background: transparent; border: 0; border-bottom: 1px solid var(--line); padding: 10px 2px; min-height: 48px; border-radius: 0; width: 100%; transition: border-color .3s; -webkit-appearance: none; appearance: none; }
-select { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E2C08A' stroke-width='2'><path d='m6 9 6 6 6-6'/></svg>"); background-repeat: no-repeat; background-position: right 2px center; background-size: 18px; padding-right: 28px; }
-input::placeholder, textarea::placeholder { color: #C9AFAA; }
-input::-webkit-calendar-picker-indicator { filter: invert(.85) sepia(.4); }
-select option { background: #FFF8F5; color: #3B2226; }
-textarea { resize: vertical; min-height: 88px; }
-input:focus, select:focus, textarea:focus { outline: none; border-bottom-color: var(--champ); }
-.form-foot { display: grid; gap: 12px; margin-top: 6px; }
+form { display: grid; gap: 30px; align-content: start; min-width: 0; }
+.step { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; gap: 14px; }
+.step legend { padding: 0; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; font: 400 22px/1.2 var(--display); color: var(--ink); }
+.step legend span { flex: none; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--champ); color: var(--champ); display: grid; place-items: center; font: 400 13px/1 var(--body); }
+.groups { display: grid; gap: 16px; }
+.group { display: grid; gap: 8px; }
+.group b { font-weight: 400; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-text); }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; display: inline-flex; }
+.chip input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.chip span { display: inline-flex; flex-direction: column; justify-content: center; align-items: center; min-height: 44px; padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(226,192,138,.4); font-size: 15px; line-height: 1.2; color: var(--ink); transition: background-color .2s, color .2s, border-color .2s; }
+.chip:hover span { border-color: var(--champ); }
+.chip input:checked + span { background: var(--champ); border-color: var(--champ); color: var(--deep); }
+.chip input:focus-visible + span { outline: 2px solid var(--champ); outline-offset: 3px; }
+.days .chip span { border-radius: 14px; min-width: 66px; padding: 8px 10px; }
+.days .chip small { font-size: 12px; opacity: .8; }
+.field { display: grid; gap: 8px; min-width: 0; }
+label, .lbl { font-size: 13px; letter-spacing: .04em; color: var(--ink-2); }
+label i { font-style: normal; opacity: .75; }
+input, textarea { font: 400 17px var(--body); color: var(--ink); background: rgba(255,248,245,.06); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-height: 50px; width: 100%; transition: border-color .2s, box-shadow .2s; -webkit-appearance: none; appearance: none; }
+input::placeholder, textarea::placeholder { color: #D4BCB7; }
+input::-webkit-calendar-picker-indicator { filter: invert(.85) sepia(.4); cursor: pointer; }
+textarea { resize: vertical; min-height: 96px; }
+input:focus, textarea:focus { outline: none; border-color: var(--champ); box-shadow: 0 0 0 3px rgba(226,192,138,.22); }
+input[aria-invalid="true"] { border-color: #F2B8B5; }
+.err { color: #F2B8B5; font-size: 14px; }
+.other-date { max-width: 260px; }
+.preview { background: rgba(255,248,245,.07); border: 1px solid rgba(226,192,138,.25); border-radius: 18px 18px 18px 4px; padding: 14px 16px; }
+.preview p { margin: 6px 0 0; white-space: pre-line; font-size: 15px; line-height: 1.55; color: var(--ink); }
+.form-foot { display: grid; gap: 12px; }
 .form-foot .btn { width: 100%; }
 .form-foot small { color: var(--ink-2); font-size: 13px; }
-@media (min-width: 600px) { form { grid-template-columns: 1fr 1fr; gap: 22px 20px; } .field.full, .form-foot { grid-column: 1 / -1; } .form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; } .form-foot .btn { width: auto; } }
+@media (min-width: 600px) { .form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; } .form-foot .btn { width: auto; } }
 @media (min-width: 900px) { .book { padding-block: 0 clamp(80px, 10vw, 130px); } .book-card { grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 90px); border-radius: 36px; padding: clamp(40px, 5vw, 72px); } }
 
 /* footer */
@@ -538,14 +557,38 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
           </div>
         </div>
         <form id="bookForm" novalidate>
-          <div class="field"><label for="fName">Your name</label><input id="fName" autocomplete="name" placeholder="Abena Mensah"></div>
-          <div class="field"><label for="fService">Service</label><select id="fService"></select></div>
-          <div class="field"><label for="fDate">Preferred date</label><input id="fDate" type="date"></div>
-          <div class="field"><label for="fTime">Preferred time</label><input id="fTime" type="time" value="10:00"></div>
-          <div class="field full"><label for="fNotes">Anything we should know?</label><textarea id="fNotes" placeholder="Length, color, inspiration photos, event date…"></textarea></div>
+          <fieldset class="step">
+            <legend><span aria-hidden="true">1</span>What would you like?</legend>
+            <div class="groups" id="svcChips"></div>
+          </fieldset>
+          <fieldset class="step">
+            <legend><span aria-hidden="true">2</span>Which day?</legend>
+            <div class="opts days" id="dayChips"></div>
+            <div class="field other-date"><label for="fDate">Or pick another date</label><input id="fDate" type="date"></div>
+          </fieldset>
+          <fieldset class="step">
+            <legend><span aria-hidden="true">3</span>What time suits you?</legend>
+            <div class="opts" id="timeChips"></div>
+          </fieldset>
+          <fieldset class="step">
+            <legend><span aria-hidden="true">4</span>Your details</legend>
+            <div class="field">
+              <label for="fName">Your name</label>
+              <input id="fName" autocomplete="name" placeholder="e.g. Abena Mensah" required aria-describedby="nameErr">
+              <small class="err" id="nameErr" hidden>Add your name so we know who's booking.</small>
+            </div>
+            <div class="field">
+              <label for="fNotes">Anything we should know? <i>(optional)</i></label>
+              <textarea id="fNotes" rows="3" placeholder="Length, color, inspiration photos, event date…"></textarea>
+            </div>
+          </fieldset>
+          <div class="preview" aria-live="polite">
+            <span class="lbl">Your WhatsApp message</span>
+            <p id="msgPreview"></p>
+          </div>
           <div class="form-foot">
-            <a class="btn" id="sendWa" target="_blank" rel="noopener">Send on WhatsApp</a>
-            <small>Nothing is sent until you press send inside WhatsApp.</small>
+            <a class="btn" id="sendWa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg>Send on WhatsApp</a>
+            <small>Opens WhatsApp with this message ready. Nothing is sent until you press send there.</small>
           </div>
         </form>
       </div>
@@ -573,7 +616,12 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
   /* ===== Edit your details here ===== */
   const WA = "233262021141"; // WhatsApp number: country code, no + or spaces
   const HOURS = { 0: [13, 18], 1: null, 2: [9, 19], 3: [9, 19], 4: [9, 19], 5: [9, 20], 6: [8, 20] }; // day: [open, close] 24h; null = closed
-  const SERVICES = ["Stitch braids", "Knotless braids", "Kids' braids", "Boho braids", "Cornrows", "Twists", "Crochet braids", "Silk press", "Wig install", "Soft glam makeup", "Bridal makeup", "Photoshoot makeup", "Makeup lesson", "Custom crochet piece", "Macramé bag / sandals / accessory", "Hair care products", "Training course"];
+  const SERVICES = {
+    "Hair": ["Stitch braids", "Knotless braids", "Kids' braids", "Boho braids", "Cornrows", "Twists", "Crochet braids", "Silk press", "Wig install"],
+    "Makeup": ["Soft glam", "Bridal makeup", "Traditional / gele look", "Photoshoot makeup", "Makeup lesson"],
+    "Crochet & macramé": ["Custom crochet piece", "Macramé bag / sandals / accessory"],
+    "Other": ["Hair care products", "Training course", "Not sure yet"]
+  };
   const REVIEWS = [
     ["My knotless braids lasted eight weeks and still looked fresh. Gentle hands, no headache. I won't go anywhere else.", "Client name", "Knotless braids"],
     ["She did my bridal makeup and I cried, then laughed, and it didn't move once. The photos are everything.", "Client name", "Bridal makeup"],
@@ -586,8 +634,6 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const esc = (t) => t.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-  /* booking select */
-  $("#fService").innerHTML = SERVICES.map(n => `<option>${esc(n)}</option>`).join("");
 
   /* reviews */
   const star = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.5 2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8Z"/></svg>';
@@ -644,17 +690,57 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
   $("#status span").textContent = openNow ? `Open now · until ${fmt(HOURS[today][1])}` : `Closed · ${next.charAt(0).toUpperCase() + next.slice(1)}`;
   $("#heroStatus").textContent = openNow ? `Open today until ${fmt(HOURS[today][1])} · Book on WhatsApp` : `Closed now, ${next} · Message us anytime`;
 
-  /* booking -> WhatsApp */
-  const f = (id) => $("#" + id).value.trim(), send = $("#sendWa");
-  const updateMsg = () => {
-    const lines = ["Hello Perfect Hands Artistry! I'd like to book an appointment.", "", `Name: ${f("fName") || "-"}`, `Service: ${f("fService")}`, `Date: ${f("fDate") || "Flexible"}`, `Time: ${f("fTime") || "Flexible"}`];
-    if (f("fNotes")) lines.push(`Notes: ${f("fNotes")}`);
-    send.href = waLink(lines.join("\n"));
+  /* booking form -> WhatsApp */
+  const chip = (name, value, html) => `<label class="chip"><input type="radio" name="${name}" value="${esc(value)}"><span>${html}</span></label>`;
+  $("#svcChips").innerHTML = Object.entries(SERVICES).map(([g, list]) =>
+    `<div class="group" role="group" aria-label="${esc(g)}"><b>${esc(g)}</b><div class="opts">${list.map(n => chip("svc", n, esc(n))).join("")}</div></div>`).join("");
+  // next open days, from HOURS
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const days = [];
+  for (let i = 0; days.length < 6 && i < 21; i++) {
+    const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
+    const h = HOURS[d.getDay()];
+    if (!h || (i === 0 && hr >= h[1] - 1)) continue; // closed, or too late to book today
+    const label = i === 0 ? "Today" : i === 1 ? "Tomorrow" : DAYS[d.getDay()].slice(0, 3);
+    days.push(chip("day", `${DAYS[d.getDay()]} ${d.getDate()} ${MONTHS[d.getMonth()]}`, `${label}<small>${d.getDate()} ${MONTHS[d.getMonth()]}</small>`));
+  }
+  $("#dayChips").innerHTML = days.join("");
+  $("#timeChips").innerHTML = [["Morning", "before 12"], ["Afternoon", "12–4pm"], ["Evening", "after 4pm"], ["Flexible", "any time"]]
+    .map(([t, sub]) => chip("time", t, `${t}<small>${sub}</small>`)).join("");
+
+  const form = $("#bookForm"), send = $("#sendWa"), nameIn = $("#fName"), nameErr = $("#nameErr"), dateIn = $("#fDate");
+  const picked = (name) => (form.querySelector(`input[name="${name}"]:checked`) || {}).value || "";
+  const fmtDate = (v) => { const [y, m, d] = v.split("-").map(Number); const dt = new Date(y, m - 1, d); return `${DAYS[dt.getDay()]} ${d} ${MONTHS[m - 1]}`; };
+  const message = () => {
+    const day = picked("day") || (dateIn.value ? fmtDate(dateIn.value) : "");
+    const lines = ["Hello Perfect Hands Artistry! I'd like to book an appointment.", "",
+      `Name: ${nameIn.value.trim() || "…"}`,
+      `Service: ${picked("svc") || "Not sure yet"}`,
+      `Day: ${day || "Flexible"}`,
+      `Time: ${picked("time") || "Flexible"}`];
+    const notes = $("#fNotes").value.trim();
+    if (notes) lines.push(`Notes: ${notes}`);
+    return lines.join("\n");
   };
-  ["input", "change"].forEach(ev => $("#bookForm").addEventListener(ev, updateMsg));
-  $("#bookForm").addEventListener("submit", e => e.preventDefault());
-  try { $("#fDate").min = new Date().toISOString().slice(0, 10); } catch (e) {}
-  updateMsg();
+  const update = () => { const m = message(); $("#msgPreview").textContent = m; send.href = waLink(m); };
+  form.addEventListener("change", (e) => {
+    if (e.target.name === "day") dateIn.value = "";                       // a day chip replaces a typed date
+    if (e.target === dateIn && dateIn.value) form.querySelectorAll('input[name="day"]').forEach(r => r.checked = false);
+    update();
+  });
+  form.addEventListener("input", () => {
+    if (nameIn.value.trim()) { nameErr.hidden = true; nameIn.removeAttribute("aria-invalid"); }
+    update();
+  });
+  form.addEventListener("submit", e => e.preventDefault());
+  send.addEventListener("click", (e) => {
+    if (nameIn.value.trim()) return;                                      // let the link open WhatsApp
+    e.preventDefault();
+    nameErr.hidden = false; nameIn.setAttribute("aria-invalid", "true");
+    nameIn.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" }); nameIn.focus({ preventScroll: true });
+  });
+  try { dateIn.min = new Date().toISOString().slice(0, 10); } catch (e) {}
+  update();
 
   /* nav + sticky booking bar */
   const nav = $("#nav"), mbar = $("#mbar"), hero = $(".hero"), book = $("#book");
