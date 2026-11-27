@@ -294,9 +294,6 @@ form { display: grid; gap: 30px; align-content: start; min-width: 0; }
 .step { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; gap: 14px; }
 .step legend { padding: 0; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; font: 400 22px/1.2 var(--display); color: var(--ink); }
 .step legend span { flex: none; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--champ); color: var(--champ); display: grid; place-items: center; font: 400 13px/1 var(--body); }
-.groups { display: grid; gap: 16px; }
-.group { display: grid; gap: 8px; }
-.group b { font-weight: 400; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-text); }
 .opts { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { position: relative; display: inline-flex; }
 .chip input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
@@ -309,11 +306,13 @@ form { display: grid; gap: 30px; align-content: start; min-width: 0; }
 .field { display: grid; gap: 8px; min-width: 0; }
 label, .lbl { font-size: 13px; letter-spacing: .04em; color: var(--ink-2); }
 label i { font-style: normal; opacity: .75; }
-input, textarea { font: 400 17px var(--body); color: var(--ink); background: rgba(255,248,245,.06); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-height: 50px; width: 100%; transition: border-color .2s, box-shadow .2s; -webkit-appearance: none; appearance: none; }
+input, select, textarea { font: 400 17px var(--body); color: var(--ink); background: rgba(255,248,245,.06); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-height: 50px; width: 100%; transition: border-color .2s, box-shadow .2s; -webkit-appearance: none; appearance: none; }
 input::placeholder, textarea::placeholder { color: #D4BCB7; }
 input::-webkit-calendar-picker-indicator { filter: invert(.85) sepia(.4); cursor: pointer; }
 textarea { resize: vertical; min-height: 96px; }
-input:focus, textarea:focus { outline: none; border-color: var(--champ); box-shadow: 0 0 0 3px rgba(226,192,138,.22); }
+select { cursor: pointer; padding-right: 44px; background: rgba(255,248,245,.06) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E2C08A' stroke-width='2' stroke-linecap='round'><path d='m6 9 6 6 6-6'/></svg>") no-repeat right 14px center / 20px; }
+select option { background: #FFF8F5; color: #3B2226; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--champ); box-shadow: 0 0 0 3px rgba(226,192,138,.22); }
 input[aria-invalid="true"] { border-color: #F2B8B5; }
 .err { color: #F2B8B5; font-size: 14px; }
 .other-date { max-width: 260px; }
@@ -559,7 +558,7 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
         <form id="bookForm" novalidate>
           <fieldset class="step">
             <legend><span aria-hidden="true">1</span>What would you like?</legend>
-            <div class="groups" id="svcChips"></div>
+            <div class="field"><label for="fService" class="sr">Service</label><select id="fService"></select></div>
           </fieldset>
           <fieldset class="step">
             <legend><span aria-hidden="true">2</span>Which day?</legend>
@@ -616,12 +615,7 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
   /* ===== Edit your details here ===== */
   const WA = "233262021141"; // WhatsApp number: country code, no + or spaces
   const HOURS = { 0: [13, 18], 1: null, 2: [9, 19], 3: [9, 19], 4: [9, 19], 5: [9, 20], 6: [8, 20] }; // day: [open, close] 24h; null = closed
-  const SERVICES = {
-    "Hair": ["Stitch braids", "Knotless braids", "Kids' braids", "Boho braids", "Cornrows", "Twists", "Crochet braids", "Silk press", "Wig install"],
-    "Makeup": ["Soft glam", "Bridal makeup", "Traditional / gele look", "Photoshoot makeup", "Makeup lesson"],
-    "Crochet & macramé": ["Custom crochet piece", "Macramé bag / sandals / accessory"],
-    "Other": ["Hair care products", "Training course", "Not sure yet"]
-  };
+  const SERVICES = ["Braids & hair", "Makeup", "Crochet", "Macramé bags, sandals & accessories", "Hair care products", "Training course", "Not sure yet"];
   const REVIEWS = [
     ["My knotless braids lasted eight weeks and still looked fresh. Gentle hands, no headache. I won't go anywhere else.", "Client name", "Knotless braids"],
     ["She did my bridal makeup and I cried, then laughed, and it didn't move once. The photos are everything.", "Client name", "Bridal makeup"],
@@ -692,8 +686,7 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
 
   /* booking form -> WhatsApp */
   const chip = (name, value, html) => `<label class="chip"><input type="radio" name="${name}" value="${esc(value)}"><span>${html}</span></label>`;
-  $("#svcChips").innerHTML = Object.entries(SERVICES).map(([g, list]) =>
-    `<div class="group" role="group" aria-label="${esc(g)}"><b>${esc(g)}</b><div class="opts">${list.map(n => chip("svc", n, esc(n))).join("")}</div></div>`).join("");
+  $("#fService").innerHTML = '<option value="">Choose a service</option>' + SERVICES.map(n => `<option>${esc(n)}</option>`).join("");
   // next open days, from HOURS
   const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const days = [];
@@ -715,7 +708,7 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
     const day = picked("day") || (dateIn.value ? fmtDate(dateIn.value) : "");
     const lines = ["Hello Perfect Hands Artistry! I'd like to book an appointment.", "",
       `Name: ${nameIn.value.trim() || "…"}`,
-      `Service: ${picked("svc") || "Not sure yet"}`,
+      `Service: ${$("#fService").value || "Not sure yet"}`,
       `Day: ${day || "Flexible"}`,
       `Time: ${picked("time") || "Flexible"}`];
     const notes = $("#fNotes").value.trim();
