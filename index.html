@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#2A1518">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"Perfect Hands Artistry","telephone":"+233503494974","sameAs":["https://www.instagram.com/perfecthandsartistry/","https://www.instagram.com/perfecthandsartistry_haircare/","https://www.instagram.com/perfecthandsartistry_crafts/"],"address":{"@type":"PostalAddress","streetAddress":"Mango Farms 2nd","addressLocality":"Ayi Mensah","addressCountry":"GH","addressRegion":"Greater Accra"},"description":"Braids, makeup, hair care products, crochet and macramé bags, sandals and accessories in Ayi Mensah, Accra. Monthly training courses. Book on WhatsApp.","image":"https://perfecthandsartistry.com/assets/og-image.jpg","logo":"https://perfecthandsartistry.com/assets/logo.webp","areaServed":"Accra","makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Braiding and hairdressing"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Makeup"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Hair care products"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Crochet"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Macramé bags, sandals and accessories"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Monthly training courses"}}],"url":"https://perfecthandsartistry.com/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"Perfect Hands Artistry","telephone":"+233503494974","sameAs":["https://www.instagram.com/perfecthandsartistry/","https://www.instagram.com/perfecthandsartistry_haircare/","https://www.instagram.com/perfecthandsartistry_crafts/"],"address":{"@type":"PostalAddress","streetAddress":"Mango Farms 2nd","addressLocality":"Ayi Mensah","addressCountry":"GH","addressRegion":"Greater Accra"},"description":"Braids, makeup, hair care products, crochet and macramé bags, sandals and accessories in Ayi Mensah, Accra. Monthly training courses. Book on WhatsApp.","image":"https://perfecthandsartistry.com/assets/og-image.jpg","logo":"https://perfecthandsartistry.com/assets/logo.webp","areaServed":"Accra","makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Braiding and hairdressing"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Makeup"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Hair care products"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Crochet"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Macramé bags, sandals and accessories"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Monthly training courses"}}],"url":"https://perfecthandsartistry.com/","founder":{"@type":"Person","name":"Ruth Yaa Boatemaa"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Mrs+Saint+Delafield&family=Tenor+Sans&display=swap">
@@ -153,12 +153,12 @@ main > section, main > footer, main > div { position: relative; z-index: 1; }
 /* welcome note from the founder */
 .welcome { padding-block: 64px 56px; }
 .welcome-in { display: grid; gap: 26px; align-items: center; max-width: 1100px; }
-.welcome .badge { width: 132px; height: 132px; border-radius: 50%; background: var(--deep); display: grid; place-items: center; box-shadow: 0 0 0 6px var(--card), 0 0 0 7px var(--gold); }
-.welcome .badge img { width: 66%; height: auto; }
+.founder { margin: 0; width: 190px; aspect-ratio: 4/5; border-radius: 999px 999px 14px 14px; overflow: hidden; box-shadow: 0 0 0 6px var(--card), 0 0 0 7px var(--gold); }
+.founder img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
 .welcome p { font: 400 clamp(22px, 2.4vw, 34px)/1.35 var(--display); margin: 0; }
 .welcome .sig { font: 400 clamp(48px, 5vw, 68px)/1 var(--script); color: var(--berry); margin: 14px 0 22px; }
 .welcome small { display: block; font-size: 13px; color: var(--ink-2); }
-@media (min-width: 760px) { .welcome-in { grid-template-columns: auto 1fr; gap: 48px; } .welcome .badge { width: 200px; height: 200px; } }
+@media (min-width: 760px) { .welcome-in { grid-template-columns: auto 1fr; gap: 48px; } .founder { width: 300px; } }
 
 /* section heads */
 .sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 60px; margin-bottom: 28px; }
@@ -227,7 +227,7 @@ main > section, main > footer, main > div { position: relative; z-index: 1; }
   .product .row { flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: wrap; }
   .product .btn { width: auto; }
 }
-@media (min-width: 900px) { .boutique { padding-block: clamp(90px, 10vw, 140px); } .products { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 900px) { .boutique { padding-block: clamp(90px, 10vw, 140px); } .products { grid-template-columns: repeat(3, 1fr); } }
 
 /* training */
 .training { position: relative; color: var(--on-dark); background: var(--deep) url("assets/pha-leaves.webp") center / cover; padding-block: 80px; isolation: isolate; }
@@ -310,7 +310,9 @@ input:focus, select:focus, textarea:focus { outline: none; border-bottom-color: 
 footer { background: var(--deep); color: var(--on-dark); padding-block: 44px calc(100px + env(safe-area-inset-bottom, 0px)); overflow: hidden; }
 .foot-logo { width: min(260px, 62vw); height: auto; margin: 0 0 30px; }
 .foot-row { display: grid; gap: 10px; color: #E6CFCA; font-size: 14px; }
-.foot-row a { text-decoration: none; display: inline-block; padding-block: 6px; } .foot-row a:hover { color: var(--champ); }
+.foot-row a { text-decoration: none; display: inline-block; padding-block: 6px; }
+.credit { margin: 26px 0 0; padding-top: 18px; border-top: 1px solid rgba(226,192,138,.18); font-size: 13px; color: #C4A8A4; }
+.credit a { color: var(--champ); text-underline-offset: 3px; } .foot-row a:hover { color: var(--champ); }
 @media (min-width: 900px) { footer { padding-block: 44px calc(30px + env(safe-area-inset-bottom, 0px)); } .foot-logo { width: 300px; } .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 40px; } }
 
 @media (prefers-reduced-motion: reduce) {
@@ -387,11 +389,11 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
 
   <section class="welcome">
     <div class="wrap welcome-in">
-      <div class="badge"><img src="assets/logo.webp" alt="Perfect Hands Artistry logo" width="640" height="704" loading="lazy" decoding="async"></div>
+      <figure class="founder"><img src="assets/founder-ruth.webp" alt="Ruth Yaa Boatemaa, founder of Perfect Hands Artistry, in a handmade crochet dress at the studio" width="640" height="854" loading="lazy" decoding="async"></figure>
       <div>
         <p>“Welcome in. Every braid, every face and every knot here is done by hand, by me and a small team who care about the details. Pull up a chair and tell us what you're dreaming of.”</p>
-        <div class="sig">Your name</div>
-        <small>Founder, Perfect Hands Artistry. <span class="ph-note">Placeholder: add your name.</span></small>
+        <div class="sig">Ruth Yaa Boatemaa</div>
+        <small>Founder, Perfect Hands Artistry</small>
       </div>
     </div>
   </section>
@@ -409,13 +411,13 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
         <a class="btn small" data-wa="Hello! I'd like to book a braiding / hairdressing appointment." target="_blank" rel="noopener">Book braids</a>
       </article>
       <article class="svc">
-        <figure><img src="assets/pha-makeup-glam.webp" alt="Client with shimmering glam eye makeup, lashes and gloss" width="864" height="1080" loading="lazy" decoding="async"></figure>
+        <figure><img src="assets/pha-makeup-kente-smile.webp" alt="Smiling client in a kente headwrap with soft glam makeup" width="800" height="1067" loading="lazy" decoding="async"></figure>
         <h3>Makeup</h3>
         <p>Soft glam, bridal and photoshoot makeup, matched to your skin and made to last all day.</p>
         <a class="btn small" data-wa="Hello! I'd like to book a makeup appointment." target="_blank" rel="noopener">Book makeup</a>
       </article>
       <article class="svc">
-        <figure><img src="assets/pha-crochet-set.webp" alt="Brown crochet halter top with rust crochet shorts on a mannequin" width="1150" height="1400" loading="lazy" decoding="async"></figure>
+        <figure><img src="assets/pha-crochet-halter-skirt.webp" alt="Ruth in a brown crochet halter top and orange crochet skirt" width="800" height="1067" loading="lazy" decoding="async"></figure>
         <h3>Crochet</h3>
         <p>Crochet braids, plus handmade tops, shorts, sets and bags in the colors you choose.</p>
         <a class="btn small" data-wa="Hello! I'm interested in crochet (braids or a custom piece)." target="_blank" rel="noopener">Ask about crochet</a>
@@ -444,12 +446,16 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
         <p>Recent sets and pieces. More every week on Instagram.</p>
       </div>
       <div class="wall">
+        <figure><img src="assets/pha-makeup-gele.webp" alt="Bride-style makeup with a yellow gele headwrap and gold jewelry" width="800" height="1067" loading="lazy" decoding="async"><figcaption>Traditional glam with gele</figcaption></figure>
         <figure><img src="assets/pha-natural-hair.webp" alt="Smiling client with full natural hair and side cornrows" width="1050" height="1400" loading="lazy" decoding="async"><figcaption>Natural hair with side cornrows</figcaption></figure>
+        <figure><img src="assets/pha-makeup-pink-crochet.webp" alt="Sculpted glam makeup with a pink one-shoulder crochet top" width="800" height="1001" loading="lazy" decoding="async"><figcaption>Full glam, crochet top by us</figcaption></figure>
+        <figure><img src="assets/pha-crochet-poncho.webp" alt="Smiling woman in a green fringed crochet poncho with bead necklaces" width="800" height="1001" loading="lazy" decoding="async"><figcaption>Fringe crochet poncho</figcaption></figure>
         <figure><img src="assets/pha-kids-braids.webp" alt="Two smiling girls with braids finished in curly ends" width="1050" height="1400" loading="lazy" decoding="async"><figcaption>Kids' braids with curly ends</figcaption></figure>
-        <figure><img src="assets/pha-makeup-glam.webp" alt="Client with shimmering glam eye makeup" width="864" height="1080" loading="lazy" decoding="async"><figcaption>Glam makeup, lashes and gloss</figcaption></figure>
+        <figure><img src="assets/pha-makeup-kente.webp" alt="Glam makeup with a kente headwrap and beaded necklace" width="800" height="1067" loading="lazy" decoding="async"><figcaption>Kente headwrap glam</figcaption></figure>
+        <figure><img src="assets/pha-makeup-mirror.webp" alt="Client smiling at her reflection in soft glam makeup and a sleek ponytail" width="800" height="1001" loading="lazy" decoding="async"><figcaption>Soft glam, sleek ponytail</figcaption></figure>
+        <figure><img src="assets/pha-crochet-vest-skirt.webp" alt="Ruth in a green crochet wrap vest and multicolor crochet skirt" width="800" height="1067" loading="lazy" decoding="async"><figcaption>Crochet vest and skirt</figcaption></figure>
         <figure><img src="assets/pha-macrame-bag-sandals.webp" alt="Brown and orange macramé handbag with matching macramé sandals" width="1050" height="1400" loading="lazy" decoding="async"><figcaption>Macramé bag and matching sandals</figcaption></figure>
-        <figure><img src="assets/pha-stitch-braids.webp" alt="Back view of stitch braids" width="1050" height="1400" loading="lazy" decoding="async"><figcaption>Stitch braids</figcaption></figure>
-        <figure><img src="assets/pha-crochet-set.webp" alt="Crochet halter top and shorts set" width="1150" height="1400" loading="lazy" decoding="async"><figcaption>Crochet top and shorts set</figcaption></figure>
+        <figure><img src="assets/pha-makeup-editorial.webp" alt="Editorial makeup photographed from above, hair fanned out" width="800" height="1001" loading="lazy" decoding="async"><figcaption>Editorial shoot</figcaption></figure>
       </div>
       <div class="insta">
         <p>Follow along on Instagram</p>
@@ -474,6 +480,8 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
         <article class="product"><figure><img src="assets/pha-macrame-bag-sandals.webp" alt="Macramé handbag with matching sandals" width="1050" height="1400" loading="lazy" decoding="async"></figure><div class="meta"><h3>Macramé Bag &amp; Sandals</h3><span class="cat">Macramé</span><p>A wooden-handle handbag with matching sandals, knotted in your colors.</p><div class="row"><span class="price">Price on request</span><a class="btn small" data-wa="Hello! I'd like to order the Macramé Bag and Sandals set. My shoe size is:" target="_blank" rel="noopener">Order</a></div></div></article>
         <article class="product"><figure><img src="assets/pha-macrame-round-bag.webp" alt="Round red macramé handbag with gold chain" width="960" height="1280" loading="lazy" decoding="async"></figure><div class="meta"><h3>Round Macramé Bag</h3><span class="cat">Macramé</span><p>A round handbag with a gold chain handle. Made to order.</p><div class="row"><span class="price">Price on request</span><a class="btn small" data-wa="Hello! I'd like to order the Round Macramé Bag." target="_blank" rel="noopener">Order</a></div></div></article>
         <article class="product"><figure><img src="assets/pha-crochet-set.webp" alt="Crochet halter top and shorts set" width="1150" height="1400" loading="lazy" decoding="async"></figure><div class="meta"><h3>Crochet Top &amp; Shorts</h3><span class="cat">Crochet</span><p>A halter top and shorts set, stitched to your size and colors.</p><div class="row"><span class="price">Price on request</span><a class="btn small" data-wa="Hello! I'd like to order the Crochet Top and Shorts set. My size is:" target="_blank" rel="noopener">Order</a></div></div></article>
+        <article class="product"><figure><img src="assets/pha-crochet-halter-skirt.webp" alt="Brown crochet halter top with orange patterned crochet skirt" width="800" height="1067" loading="lazy" decoding="async"></figure><div class="meta"><h3>Halter &amp; Skirt Set</h3><span class="cat">Crochet</span><p>A fitted halter top with a patterned maxi skirt, stitched to your size.</p><div class="row"><span class="price">Price on request</span><a class="btn small" data-wa="Hello! I'd like to order the Crochet Halter and Skirt set. My size is:" target="_blank" rel="noopener">Order</a></div></div></article>
+        <article class="product"><figure><img src="assets/pha-crochet-poncho.webp" alt="Green fringed crochet poncho" width="800" height="1001" loading="lazy" decoding="async"></figure><div class="meta"><h3>Fringe Poncho</h3><span class="cat">Crochet</span><p>An open-stitch poncho with long fringe. Pick your color.</p><div class="row"><span class="price">Price on request</span><a class="btn small" data-wa="Hello! I'd like to order the Crochet Fringe Poncho. My color is:" target="_blank" rel="noopener">Order</a></div></div></article>
       </div>
     </div>
   </section>
@@ -551,6 +559,7 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
         <span>Ayi Mensah, Mango Farms 2nd · Calls 050 349 4974 · WhatsApp 026 202 1141</span>
         <span><a href="https://www.instagram.com/perfecthandsartistry/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.instagram.com/perfecthandsartistry_haircare/" target="_blank" rel="noopener">Hair care</a> · <a href="https://www.instagram.com/perfecthandsartistry_crafts/" target="_blank" rel="noopener">Crafts</a> · <a data-wa="Hello Perfect Hands Artistry!" target="_blank" rel="noopener">WhatsApp</a></span>
       </div>
+      <p class="credit">Made by <a href="https://forge12studios.com" target="_blank" rel="noopener">Forge 12 Studios</a></p>
     </div>
   </footer>
 </main>
