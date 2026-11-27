@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "italic-serif-display",
+        "value": "*",
+        "files": [
+          "/Users/yoofiadomappiah/Documents/perfecthandsartistry/index.html"
+        ],
+        "createdAt": "2026-11-26T23:44:48.772Z",
+        "reason": "Claude: user asked for a glamorous fashion-magazine salon page; Bodoni italic accents are the deliberate editorial register"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-26T23:58:43.814Z",
+        "reason": "Agent: .about and .notes bands have padding-block 72px+ and their .wrap child applies max(18px, safe-area) side gutters; detector checks the section box, not the inset child"
+      }
+    ]
+  }
+}

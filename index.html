@@ -1,0 +1,655 @@
+<title>Perfect Hands Artistry</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Knotless braids, glam makeup, hair care and handmade crochet and macramé. Book on WhatsApp.">
+<meta name="theme-color" content="#2A1518">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"Perfect Hands Artistry","telephone":"+233503494974","sameAs":["https://www.instagram.com/perfecthandsartistry/","https://www.instagram.com/perfecthandsartistry_haircare/","https://www.instagram.com/perfecthandsartistry_crafts/"],"address":{"@type":"PostalAddress","streetAddress":"Mango Farms 2nd","addressLocality":"Ayi Mensah","addressCountry":"GH"},"description":"Braids, makeup, hair care products, crochet, macramé bags, sandals and accessories, plus monthly training courses."}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Mrs+Saint+Delafield&family=Tenor+Sans&display=swap">
+<style>
+/* Layout: photo-led, mobile-first. A full-bleed braiding loop opens, then real work does the talking:
+   services as a swipe rail, a printed service menu, a loose lookbook wall, the shop, reviews, booking.
+   Single light theme: pearl blush paper, deep rose-brown ink, berry for action, champagne only as ornament. */
+:root {
+  --bg: #F8EDEA;
+  --bg-2: #F1DCD6;
+  --card: #FFF8F5;
+  --ink: #3B2226;
+  --ink-2: #6B4A4E;
+  --gold: #B48A4E;
+  --gold-text: #7E5B2A;
+  --berry: #8E3B4A;
+  --berry-hi: #A44A5A;
+  --on-dark: #FFF8F5;
+  --deep: #2A1518;
+  --champ: #E2C08A;
+  --line: rgba(180,138,78,.38);
+  --display: "Gloock", "Bodoni 72", Didot, Georgia, serif;
+  --script: "Mrs Saint Delafield", "Snell Roundhand", cursive;
+  --body: "Tenor Sans", "Optima", "Candara", system-ui, sans-serif;
+  --gutter: max(clamp(18px, 5vw, 72px), env(safe-area-inset-left, 0px));
+  --gutter-r: max(clamp(18px, 5vw, 72px), env(safe-area-inset-right, 0px));
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { background: var(--bg); -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font: 400 17px/1.65 var(--body); overflow-x: hidden; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
+img, video { display: block; max-width: 100%; }
+a { color: inherit; }
+::selection { background: var(--berry); color: var(--on-dark); }
+:focus-visible { outline: 2px solid var(--berry); outline-offset: 4px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.04; margin: 0; text-wrap: balance; }
+em { font-family: var(--script); font-style: normal; font-weight: 400; color: var(--berry); font-size: 1.32em; line-height: .5; padding-inline: .04em .12em; }
+.wrap { padding-left: var(--gutter); padding-right: var(--gutter-r); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ph-note { color: var(--gold-text); }
+
+/* thread */
+.thread { position: absolute; left: 0; top: 0; width: 100%; pointer-events: none; z-index: 0; overflow: visible; }
+.thread path { fill: none; stroke-linecap: round; }
+main { position: relative; }
+main > section, main > footer, main > div { position: relative; z-index: 1; }
+
+/* nav: white over the video, paper once scrolled */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50; color: var(--on-dark);
+  padding-top: calc(env(safe-area-inset-top, 0px) + 6px); padding-bottom: 6px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  transition: background-color .4s, color .4s, border-color .4s; border-bottom: 1px solid transparent;
+  background: linear-gradient(rgba(42,21,24,.6), rgba(42,21,24,0));
+}
+.nav.scrolled { background: var(--bg); color: var(--ink); border-bottom-color: var(--line); }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
+.brand .logo { width: auto; height: 70px; flex: none; }
+.nav ul { display: none; gap: 30px; list-style: none; margin: 0; padding: 0; }
+.nav ul a { text-decoration: none; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
+.nav ul a:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-color: var(--gold); }
+.nav .btn.book-top { display: none; }
+.menu-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 4px 0 12px; background: none; border: 0; color: inherit; cursor: pointer; font: 400 12px var(--body); letter-spacing: .24em; text-transform: uppercase; }
+.menu-btn i { display: grid; gap: 6px; width: 26px; }
+.menu-btn i::before, .menu-btn i::after { content: ""; height: 1.5px; background: currentColor; }
+.menu-btn i::after { width: 70%; justify-self: end; }
+@media (min-width: 900px) {
+  .brand .logo { height: 96px; }
+  .nav ul { display: flex; }
+  .nav .btn.book-top { display: inline-flex; }
+  .menu-btn { display: none; }
+}
+
+/* mobile menu */
+.sheet { position: fixed; inset: 0; z-index: 80; background: var(--bg); color: var(--ink); padding-top: calc(env(safe-area-inset-top, 0px) + 12px); padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 24px); display: flex; flex-direction: column; gap: 24px; overflow-y: auto; }
+.sheet:not([hidden]) { animation: sheetIn .45s cubic-bezier(.2,.8,.2,1); }
+@keyframes sheetIn { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+.sheet-top { display: flex; justify-content: space-between; align-items: center; }
+.sheet nav { display: grid; gap: 2px; margin-top: 3vh; }
+.sheet nav a { font: 400 clamp(36px, 10vw, 60px)/1.2 var(--display); text-decoration: none; padding-block: 4px; }
+.sheet .btn { align-self: stretch; margin-top: auto; }
+.close-btn { min-height: 44px; background: none; border: 0; color: var(--ink); cursor: pointer; font: 400 12px var(--body); letter-spacing: .24em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 10px; padding: 0 4px 0 12px; }
+.close-btn svg { width: 22px; height: 22px; }
+
+/* sticky booking bar (phones) */
+.mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding-top: 10px; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 10px); background: var(--bg); border-top: 1px solid var(--line); transform: translateY(110%); transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+.mbar.on { transform: none; }
+.mbar .btn { width: 100%; }
+@media (min-width: 900px) { .mbar { display: none; } }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; text-decoration: none; cursor: pointer; font: 400 13px/1 var(--body); letter-spacing: .16em; text-transform: uppercase; min-height: 52px; padding: 0 28px; border-radius: 999px; border: 1px solid var(--berry); background: var(--berry); color: var(--on-dark); transition: background-color .3s, border-color .3s, color .3s; }
+.btn:hover { background: var(--berry-hi); border-color: var(--berry-hi); }
+.btn:active { transform: scale(.98); }
+.btn.ghost { background: transparent; color: var(--berry); }
+.btn.ghost:hover { background: rgba(142,59,74,.08); }
+.btn.light { background: var(--on-dark); border-color: var(--on-dark); color: var(--deep); }
+.btn.light:hover { background: #fff; }
+.btn.line-light { background: transparent; border-color: rgba(255,248,245,.7); color: var(--on-dark); }
+.btn.line-light:hover { background: rgba(255,248,245,.12); }
+.btn.small { min-height: 44px; padding: 0 20px; font-size: 12px; }
+.btn svg { width: 18px; height: 18px; flex: none; }
+
+/* hero: full-bleed braiding loop */
+.hero { position: relative; min-height: min(88svh, 900px); display: grid; align-items: end; color: var(--on-dark); background: var(--deep); overflow: hidden; }
+.hero video, .hero .poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(42,21,24,.86) 0%, rgba(42,21,24,.45) 42%, rgba(42,21,24,.1) 66%, rgba(42,21,24,.45) 100%); }
+.hero-copy { position: relative; z-index: 1; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 40px); padding-top: 140px; max-width: 900px; }
+.hero h1 { font-size: clamp(46px, 7.4vw + 14px, 128px); line-height: 1; letter-spacing: -.01em; }
+.hero h1 em { color: var(--champ); font-size: 1.22em; }
+.hero p { max-width: 30em; margin: 34px 0 26px; font-size: clamp(17px, 1.3vw, 19px); color: rgba(255,248,245,.9); }
+.hero-cta { display: grid; gap: 12px; }
+.hero .meta { margin-top: 18px; font-size: 14px; color: rgba(255,248,245,.78); display: flex; align-items: center; gap: 10px; }
+.hero .meta i { width: 7px; height: 7px; border-radius: 50%; background: #9BC59D; flex: none; }
+.hero .rise { animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }
+.hero .rise:nth-child(2) { animation-delay: .12s; } .hero .rise:nth-child(3) { animation-delay: .22s; } .hero .rise:nth-child(4) { animation-delay: .3s; }
+@keyframes rise { from { transform: translateY(24px); opacity: .001; } }
+.vid-toggle { position: absolute; z-index: 2; right: max(14px, env(safe-area-inset-right, 0px)); bottom: calc(env(safe-area-inset-bottom, 0px) + 14px); width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,248,245,.5); background: rgba(42,21,24,.35); color: var(--on-dark); display: grid; place-items: center; cursor: pointer; }
+.vid-toggle svg { width: 16px; height: 16px; }
+@media (min-width: 560px) { .hero-cta { display: flex; flex-wrap: wrap; } }
+@media (min-width: 900px) { .hero-copy { padding-bottom: 72px; } }
+
+/* welcome note from the founder */
+.welcome { padding-block: 64px 56px; }
+.welcome-in { display: grid; gap: 26px; align-items: center; max-width: 1100px; }
+.welcome .badge { width: 132px; height: 132px; border-radius: 50%; background: var(--deep); display: grid; place-items: center; box-shadow: 0 0 0 6px var(--card), 0 0 0 7px var(--gold); }
+.welcome .badge img { width: 66%; height: auto; }
+.welcome p { font: 400 clamp(22px, 2.4vw, 34px)/1.35 var(--display); margin: 0; }
+.welcome .sig { font: 400 clamp(48px, 5vw, 68px)/1 var(--script); color: var(--berry); margin: 14px 0 22px; }
+.welcome small { display: block; font-size: 13px; color: var(--ink-2); }
+@media (min-width: 760px) { .welcome-in { grid-template-columns: auto 1fr; gap: 48px; } .welcome .badge { width: 200px; height: 200px; } }
+
+/* section heads */
+.sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 60px; margin-bottom: 28px; }
+.sec-head h2 { font-size: clamp(40px, 6vw, 96px); }
+.sec-head p { max-width: 26em; color: var(--ink-2); margin: 0; }
+@media (min-width: 900px) { .sec-head { margin-bottom: clamp(36px, 5vw, 60px); } }
+
+/* services rail */
+.services { padding-block: 24px 64px; overflow: hidden; }
+.rail { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; padding-left: var(--gutter); padding-right: var(--gutter-r); scroll-padding-inline: var(--gutter); scrollbar-width: none; }
+.rail::-webkit-scrollbar { display: none; }
+.svc { flex: 0 0 82%; max-width: 400px; scroll-snap-align: start; display: flex; flex-direction: column; }
+.svc figure { margin: 0; position: relative; aspect-ratio: 4/5; border-radius: 200px 200px 12px 12px; overflow: hidden; background: var(--bg-2); }
+.svc figure img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.8,.2,1); }
+.svc:hover figure img { transform: scale(1.04); }
+.svc h3 { font-size: 30px; margin: 18px 0 6px; }
+.svc p { color: var(--ink-2); font-size: 16px; margin: 0 0 16px; flex: 1; }
+.svc .btn { align-self: flex-start; }
+.swipe { display: flex; align-items: center; gap: 14px; margin-top: 22px; color: var(--ink-2); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
+.swipe .bar { flex: 1; height: 1.5px; background: var(--line); position: relative; overflow: hidden; max-width: 220px; }
+.swipe .bar i { position: absolute; inset: 0 auto 0 0; width: 20%; background: var(--berry); }
+@media (min-width: 900px) {
+  .services { padding-block: 40px clamp(90px, 10vw, 130px); }
+  .rail { overflow: visible; display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(16px, 2vw, 28px); }
+  .svc { max-width: none; }
+  .svc:nth-child(even) { margin-top: 64px; }
+  .svc h3 { font-size: clamp(24px, 2vw, 30px); }
+  .swipe { display: none; }
+}
+
+/* lookbook: loose photo wall */
+.lookbook { padding-block: 72px; }
+.wall { columns: 2; column-gap: 10px; }
+.wall figure { margin: 0 0 10px; break-inside: avoid; position: relative; }
+.wall img { width: 100%; height: auto; border-radius: 10px; background: var(--bg-2); }
+.wall figure:nth-child(1) img { border-radius: 200px 200px 10px 10px; }
+.wall figcaption { font-size: 13px; color: var(--ink-2); padding: 8px 2px 4px; }
+.insta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
+.insta p { margin: 0; font: 400 22px/1.3 var(--display); }
+.ig { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.ig a { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 8px 18px 8px 14px; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; transition: border-color .3s, background-color .3s; }
+.ig a:hover { border-color: var(--berry); background: rgba(142,59,74,.06); }
+.ig svg { width: 22px; height: 22px; color: var(--berry); flex: none; }
+.ig span { display: grid; font-size: 15px; line-height: 1.25; }
+.ig small { font-size: 12px; color: var(--ink-2); }
+@media (min-width: 900px) { .lookbook { padding-block: clamp(90px, 10vw, 140px); } .wall { columns: 4; column-gap: 18px; } .wall figure { margin-bottom: 18px; } }
+
+/* boutique */
+.boutique { padding-block: 72px; }
+.products { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 12px; }
+.product { display: flex; flex-direction: column; min-width: 0; }
+.product figure { margin: 0; aspect-ratio: 4/5; border-radius: 6px; overflow: hidden; background: var(--bg-2); }
+.product figure img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.8,.2,1); }
+.product:hover figure img { transform: scale(1.04); }
+.product .meta { padding-top: 12px; display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.product h3 { font-size: 20px; line-height: 1.15; }
+.product .cat { font-size: 13px; color: var(--gold-text); }
+.product p { display: none; margin: 6px 0 14px; color: var(--ink-2); font-size: 15px; flex: 1; }
+.product .row { display: flex; flex-direction: column; align-items: stretch; gap: 10px; margin-top: auto; padding-top: 10px; }
+.product .price { font: 400 16px var(--display); color: var(--berry); }
+.product .btn { width: 100%; }
+@media (min-width: 700px) {
+  .products { grid-template-columns: repeat(2, 1fr); gap: clamp(36px, 4vw, 60px) clamp(18px, 2.4vw, 36px); }
+  .product h3 { font-size: 26px; }
+  .product p { display: block; }
+  .product .row { flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+  .product .btn { width: auto; }
+}
+@media (min-width: 900px) { .boutique { padding-block: clamp(90px, 10vw, 140px); } .products { grid-template-columns: repeat(4, 1fr); } }
+
+/* training */
+.training { position: relative; color: var(--on-dark); background: var(--deep) url("assets/pha-leaves.webp") center / cover; padding-block: 80px; isolation: isolate; }
+.training::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(42,21,24,.82), rgba(42,21,24,.92)); }
+.training-in { max-width: 900px; }
+.training h2 { font-size: clamp(42px, 6vw, 96px); margin-bottom: 18px; }
+.training h2 em { color: var(--champ); }
+.training p { color: #E6CFCA; max-width: 34em; margin: 0 0 22px; }
+.training .ph-note { color: var(--champ); }
+.training ul { list-style: none; padding: 0; margin: 0 0 30px; display: flex; flex-wrap: wrap; gap: 10px; }
+.training li { border: 1px solid rgba(226,192,138,.5); border-radius: 999px; padding: 8px 16px; font-size: 15px; }
+.training .btn { background: var(--champ); border-color: var(--champ); color: var(--deep); }
+.training .btn:hover { background: #EDD3A6; border-color: #EDD3A6; }
+@media (min-width: 900px) { .training { padding-block: clamp(100px, 12vw, 160px); } }
+
+/* reviews */
+.reviews { padding-block: 64px; background: var(--bg-2); }
+.cards { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-left: var(--gutter); padding-right: var(--gutter-r); scroll-padding-inline: var(--gutter); }
+.cards::-webkit-scrollbar { display: none; }
+.review { flex: 0 0 84%; max-width: 420px; scroll-snap-align: start; background: var(--card); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+.stars { display: flex; gap: 3px; color: var(--gold); }
+.stars svg { width: 16px; height: 16px; }
+.review blockquote { margin: 0; font: 400 20px/1.4 var(--display); flex: 1; }
+.who { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--ink-2); }
+.who b { display: block; font-weight: 400; color: var(--ink); }
+.who .av { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-2); color: var(--berry); font: 400 18px var(--display); flex: none; }
+.sample { margin: 18px 0 0; font-size: 13px; color: var(--ink-2); }
+@media (min-width: 900px) { .reviews { padding-block: clamp(90px, 10vw, 130px); } .cards { overflow: visible; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; } .review { max-width: none; padding: 30px; } }
+
+/* before you come */
+.faq { padding-block: 72px; }
+.faq-grid { display: grid; gap: 20px; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; padding-block: 16px; font: 400 clamp(20px, 2vw, 26px)/1.25 var(--display); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: ""; flex: none; width: 12px; height: 12px; border-right: 1.5px solid var(--berry); border-bottom: 1.5px solid var(--berry); transform: rotate(45deg) translate(-3px, -3px); transition: transform .35s; }
+.faq details[open] summary::after { transform: rotate(225deg); }
+.faq details p { margin: 0 0 22px; color: var(--ink-2); max-width: 60ch; }
+@media (min-width: 900px) { .faq { padding-block: clamp(90px, 10vw, 140px); } .faq-grid { grid-template-columns: .8fr 1.2fr; gap: clamp(40px, 6vw, 96px); align-items: start; } }
+
+/* booking: deep band */
+.book { padding-block: 0 56px; }
+.book-card { --ink: #F8EDEA; --ink-2: #E6CFCA; --gold-text: #E2C08A; --line: rgba(226,192,138,.4); display: grid; gap: 36px; color: var(--ink); border-radius: 28px; padding: 30px 20px; background: linear-gradient(150deg, #5A2433, #2A1518); }
+.book-card em { color: var(--champ); }
+.book-card .btn { background: var(--champ); border-color: var(--champ); color: var(--deep); }
+.book-card .btn:hover { background: #EDD3A6; border-color: #EDD3A6; }
+.book h2 { font-size: clamp(42px, 6vw, 96px); margin: 0 0 16px; }
+.book .side p { color: var(--ink-2); max-width: 26em; margin: 0; }
+.contact { margin-top: 26px; display: grid; gap: 8px; }
+.contact .num { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font: 400 24px var(--display); color: var(--champ); }
+.contact .num a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; min-height: 44px; display: inline-flex; align-items: center; }
+.contact .lbl:not(:first-child) { margin-top: 14px; }
+.contact .addr { margin: 0; font: 400 22px/1.3 var(--display); }
+.dir { color: var(--champ); text-underline-offset: 4px; font-size: 15px; min-height: 44px; display: inline-flex; align-items: center; }
+.contact small, .hours small { color: var(--ink-2); font-size: 13px; }
+.hours { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); display: grid; gap: 12px; }
+.status { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; }
+.status i { width: 9px; height: 9px; border-radius: 50%; background: #9BC59D; box-shadow: 0 0 0 4px rgba(155,197,157,.22); }
+.status.closed i { background: #E0A3A0; box-shadow: 0 0 0 4px rgba(224,163,160,.2); }
+.hours dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 22px; margin: 0; font-size: 14px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.hours dt { color: var(--ink); } .hours dd { margin: 0; }
+.hours .today { color: var(--champ); }
+form { display: grid; gap: 20px; align-content: start; }
+.field { display: grid; gap: 6px; min-width: 0; }
+label, .lbl { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold-text); }
+input, select, textarea { font: 400 17px var(--body); color: var(--ink); background: transparent; border: 0; border-bottom: 1px solid var(--line); padding: 10px 2px; min-height: 48px; border-radius: 0; width: 100%; transition: border-color .3s; -webkit-appearance: none; appearance: none; }
+select { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E2C08A' stroke-width='2'><path d='m6 9 6 6 6-6'/></svg>"); background-repeat: no-repeat; background-position: right 2px center; background-size: 18px; padding-right: 28px; }
+input::placeholder, textarea::placeholder { color: #C9AFAA; }
+input::-webkit-calendar-picker-indicator { filter: invert(.85) sepia(.4); }
+select option { background: #FFF8F5; color: #3B2226; }
+textarea { resize: vertical; min-height: 88px; }
+input:focus, select:focus, textarea:focus { outline: none; border-bottom-color: var(--champ); }
+.form-foot { display: grid; gap: 12px; margin-top: 6px; }
+.form-foot .btn { width: 100%; }
+.form-foot small { color: var(--ink-2); font-size: 13px; }
+@media (min-width: 600px) { form { grid-template-columns: 1fr 1fr; gap: 22px 20px; } .field.full, .form-foot { grid-column: 1 / -1; } .form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; } .form-foot .btn { width: auto; } }
+@media (min-width: 900px) { .book { padding-block: 0 clamp(80px, 10vw, 130px); } .book-card { grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 90px); border-radius: 36px; padding: clamp(40px, 5vw, 72px); } }
+
+/* footer */
+footer { background: var(--deep); color: var(--on-dark); padding-block: 44px calc(100px + env(safe-area-inset-bottom, 0px)); overflow: hidden; }
+.foot-logo { width: min(260px, 62vw); height: auto; margin: 0 0 30px; }
+.foot-row { display: grid; gap: 10px; color: #E6CFCA; font-size: 14px; }
+.foot-row a { text-decoration: none; display: inline-block; padding-block: 6px; } .foot-row a:hover { color: var(--champ); }
+@media (min-width: 900px) { footer { padding-block: 44px calc(30px + env(safe-area-inset-bottom, 0px)); } .foot-logo { width: 300px; } .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 40px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero .rise { animation: none; }
+  .mbar { transition: none; }
+  .sheet:not([hidden]) { animation: none; }
+  .svc figure img, .product figure img { transition: none; }
+}
+</style>
+
+<header class="nav wrap" id="nav">
+  <a class="brand" href="#top"><img class="logo" src="assets/logo.webp" alt="Perfect Hands Artistry" width="640" height="704"></a>
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#lookbook">Lookbook</a></li>
+      <li><a href="#boutique">Boutique</a></li>
+      <li><a href="#training">Training</a></li>
+      <li><a href="#faq">Before you come</a></li>
+    </ul>
+  </nav>
+  <a class="btn small book-top" href="#book">Book now</a>
+  <button class="menu-btn" type="button" id="menuOpen" aria-expanded="false" aria-controls="sheet">Menu <i></i></button>
+</header>
+
+<div class="sheet wrap" id="sheet" hidden>
+  <div class="sheet-top">
+    <a class="brand" href="#top"><img class="logo" src="assets/logo.webp" alt="Perfect Hands Artistry" width="640" height="704"></a>
+    <button class="close-btn" type="button" id="menuClose">Close <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
+  </div>
+  <nav aria-label="Mobile">
+    <a href="#services">Services</a>
+    <a href="#lookbook">Lookbook</a>
+    <a href="#boutique">Boutique</a>
+    <a href="#training">Training</a>
+    <a href="#faq">Before you come</a>
+    <a href="#book">Book</a>
+  </nav>
+  <a class="btn" data-wa="Hello Perfect Hands Artistry! I'd like to book an appointment." target="_blank" rel="noopener">Book on WhatsApp</a>
+</div>
+
+<main id="top">
+  <svg class="thread" aria-hidden="true">
+    <defs>
+      <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#B48A4E"/><stop offset=".5" stop-color="#D4AE72"/><stop offset="1" stop-color="#B9707A"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <section class="hero" aria-label="Welcome">
+    <img class="poster" src="assets/hero-poster.webp" alt="" width="720" height="1080">
+    <video id="heroVid" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+    <div class="wrap hero-copy">
+      <h1 class="rise">Your hair, in <em>perfect</em> hands.</h1>
+      <p class="rise">Braids, makeup, our own hair care range, and handmade crochet and macramé, done with care in our Ayi Mensah studio.</p>
+      <div class="hero-cta rise">
+        <a class="btn light" data-wa="Hello Perfect Hands Artistry! I'd like to book an appointment." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg>
+          Book on WhatsApp
+        </a>
+        <a class="btn line-light" href="#lookbook">See our work</a>
+      </div>
+      <div class="meta rise"><i></i><span id="heroStatus">Bookings open on WhatsApp</span></div>
+    </div>
+    <button class="vid-toggle" type="button" id="vidToggle" aria-label="Pause background video">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h3v14H7zM14 5h3v14h-3z"/></svg>
+    </button>
+  </section>
+
+  <section class="welcome">
+    <div class="wrap welcome-in">
+      <div class="badge"><img src="assets/logo.webp" alt="Perfect Hands Artistry logo" width="640" height="704" loading="lazy" decoding="async"></div>
+      <div>
+        <p>“Welcome in. Every braid, every face and every knot here is done by hand, by me and a small team who care about the details. Pull up a chair and tell us what you're dreaming of.”</p>
+        <div class="sig">Your name</div>
+        <small>Founder, Perfect Hands Artistry. <span class="ph-note">Placeholder: add your name.</span></small>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap sec-head">
+      <h2>What we do</h2>
+      <p>Five crafts under one roof. Tap any one to ask about it on WhatsApp.</p>
+    </div>
+    <div class="rail" id="rail">
+      <article class="svc">
+        <figure><img src="assets/pha-stitch-braids.webp" alt="Back view of neat stitch braids with a zigzag parting" width="1050" height="1400" loading="lazy" decoding="async"></figure>
+        <h3>Braids &amp; hair</h3>
+        <p>Stitch braids, knotless, cornrows, natural styling and kids' braids. Neat parts, gentle hands.</p>
+        <a class="btn small" data-wa="Hello! I'd like to book a braiding / hairdressing appointment." target="_blank" rel="noopener">Book braids</a>
+      </article>
+      <article class="svc">
+        <figure><img src="assets/pha-makeup-glam.webp" alt="Client with shimmering glam eye makeup, lashes and gloss" width="864" height="1080" loading="lazy" decoding="async"></figure>
+        <h3>Makeup</h3>
+        <p>Soft glam, bridal and photoshoot makeup, matched to your skin and made to last all day.</p>
+        <a class="btn small" data-wa="Hello! I'd like to book a makeup appointment." target="_blank" rel="noopener">Book makeup</a>
+      </article>
+      <article class="svc">
+        <figure><img src="assets/pha-crochet-set.webp" alt="Brown crochet halter top with rust crochet shorts on a mannequin" width="1150" height="1400" loading="lazy" decoding="async"></figure>
+        <h3>Crochet</h3>
+        <p>Crochet braids, plus handmade tops, shorts, sets and bags in the colors you choose.</p>
+        <a class="btn small" data-wa="Hello! I'm interested in crochet (braids or a custom piece)." target="_blank" rel="noopener">Ask about crochet</a>
+      </article>
+      <article class="svc">
+        <figure><img src="assets/pha-macrame-round-bag.webp" alt="Smiling client holding a round red macramé handbag" width="960" height="1280" loading="lazy" decoding="async"></figure>
+        <h3>Macramé</h3>
+        <p>Hand-knotted handbags, sandals and accessories. No two come out the same.</p>
+        <a class="btn small" data-wa="Hello! I'd like to order a macramé piece." target="_blank" rel="noopener">Order macramé</a>
+      </article>
+      <article class="svc">
+        <figure><img src="assets/pha-products.webp" alt="Perfect Hands hair care range: growth oil, shampoo, conditioner, leave-in and pomade" width="1050" height="1400" loading="lazy" decoding="async"></figure>
+        <h3>Hair care</h3>
+        <p>Our own Perfect Hands range: growth oil, shampoo, conditioner, leave-in and growth pomade.</p>
+        <a class="btn small" href="#boutique">Shop products</a>
+      </article>
+    </div>
+    <div class="wrap swipe" aria-hidden="true"><span id="swipeCount">1 / 5</span><span class="bar"><i id="swipeBar"></i></span><span>Swipe</span></div>
+  </section>
+
+
+  <section class="lookbook" id="lookbook">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Fresh from <em>the chair</em></h2>
+        <p>Recent sets and pieces. More every week on Instagram.</p>
+      </div>
+      <div class="wall">
+        <figure><img src="assets/pha-natural-hair.webp" alt="Smiling client with full natural hair and side cornrows" width="1050" height="1400" loading="lazy" decoding="async"><figcaption>Natural hair with side cornrows</figcaption></figure>
+        <figure><img src="assets/pha-kids-braids.webp" alt="Two smiling girls with braids finished in curly ends" width="1050" height="1400" loading="lazy" decoding="async"><figcaption>Kids' braids with curly ends</figcaption></figure>
+        <figure><img src="assets/pha-makeup-glam.webp" alt="Client with shimmering glam eye makeup" width="864" height="1080" loading="lazy" decoding="async"><figcaption>Glam makeup, lashes and gloss</figcaption></figure>
+        <figure><img src="assets/pha-macrame-bag-sandals.webp" alt="Brown and orange macramé handbag with matching macramé sandals" width="1050" height="1400" loading="lazy" decoding="async"><figcaption>Macramé bag and matching sandals</figcaption></figure>
+        <figure><img src="assets/pha-stitch-braids.webp" alt="Back view of stitch braids" width="1050" height="1400" loading="lazy" decoding="async"><figcaption>Stitch braids</figcaption></figure>
+        <figure><img src="assets/pha-crochet-set.webp" alt="Crochet halter top and shorts set" width="1150" height="1400" loading="lazy" decoding="async"><figcaption>Crochet top and shorts set</figcaption></figure>
+      </div>
+      <div class="insta">
+        <p>Follow along on Instagram</p>
+        <ul class="ig">
+          <li><a href="https://www.instagram.com/perfecthandsartistry/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span><small>Salon &amp; makeup</small>@perfecthandsartistry</span></a></li>
+          <li><a href="https://www.instagram.com/perfecthandsartistry_haircare/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span><small>Hair care range</small>@perfecthandsartistry_haircare</span></a></li>
+          <li><a href="https://www.instagram.com/perfecthandsartistry_crafts/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span><small>Crochet &amp; macramé</small>@perfecthandsartistry_crafts</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="boutique" id="boutique">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>The boutique</h2>
+        <p>Handmade pieces and hair care. Tap a piece to order it on WhatsApp. We'll confirm price, color and delivery with you. More on <a href="https://www.instagram.com/perfecthandsartistry_haircare/" target="_blank" rel="noopener">@perfecthandsartistry_haircare</a> and <a href="https://www.instagram.com/perfecthandsartistry_crafts/" target="_blank" rel="noopener">@perfecthandsartistry_crafts</a>.</p>
+      </div>
+      <div class="products">
+        <article class="product"><figure><img src="assets/pha-products.webp" alt="Perfect Hands hair care bottles and pomade" width="1050" height="1400" loading="lazy" decoding="async"></figure><div class="meta"><h3>Hair Care Range</h3><span class="cat">Hair care</span><p>Hair Growth Oil, Shampoo, Conditioner, Leave-in Conditioner and Hair Growth Pomade.</p><div class="row"><span class="price">Price on request</span><a class="btn small" data-wa="Hello! I'd like to order from the Perfect Hands hair care range:" target="_blank" rel="noopener">Order</a></div></div></article>
+        <article class="product"><figure><img src="assets/pha-macrame-bag-sandals.webp" alt="Macramé handbag with matching sandals" width="1050" height="1400" loading="lazy" decoding="async"></figure><div class="meta"><h3>Macramé Bag &amp; Sandals</h3><span class="cat">Macramé</span><p>A wooden-handle handbag with matching sandals, knotted in your colors.</p><div class="row"><span class="price">Price on request</span><a class="btn small" data-wa="Hello! I'd like to order the Macramé Bag and Sandals set. My shoe size is:" target="_blank" rel="noopener">Order</a></div></div></article>
+        <article class="product"><figure><img src="assets/pha-macrame-round-bag.webp" alt="Round red macramé handbag with gold chain" width="960" height="1280" loading="lazy" decoding="async"></figure><div class="meta"><h3>Round Macramé Bag</h3><span class="cat">Macramé</span><p>A round handbag with a gold chain handle. Made to order.</p><div class="row"><span class="price">Price on request</span><a class="btn small" data-wa="Hello! I'd like to order the Round Macramé Bag." target="_blank" rel="noopener">Order</a></div></div></article>
+        <article class="product"><figure><img src="assets/pha-crochet-set.webp" alt="Crochet halter top and shorts set" width="1150" height="1400" loading="lazy" decoding="async"></figure><div class="meta"><h3>Crochet Top &amp; Shorts</h3><span class="cat">Crochet</span><p>A halter top and shorts set, stitched to your size and colors.</p><div class="row"><span class="price">Price on request</span><a class="btn small" data-wa="Hello! I'd like to order the Crochet Top and Shorts set. My size is:" target="_blank" rel="noopener">Order</a></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="training" id="training">
+    <div class="wrap training-in">
+      <h2>Learn the <em>craft</em></h2>
+      <p>We run monthly training courses in every discipline we offer. Small classes, hands-on practice, and a certificate when you finish. <span class="ph-note">(Placeholder: confirm the certificate.)</span></p>
+      <ul>
+        <li>Braiding &amp; hairdressing</li><li>Makeup</li><li>Crocheting</li><li>Macramé bags, sandals &amp; accessories</li><li>Hair care</li>
+      </ul>
+      <a class="btn" data-wa="Hello! I'd like to join the next Perfect Hands training course. I'm interested in:" target="_blank" rel="noopener">Ask about the next class</a>
+    </div>
+  </section>
+
+  <section class="reviews" aria-labelledby="revH">
+    <div class="wrap sec-head"><h2 id="revH">Kind words</h2><p>From the people in our chair.</p></div>
+    <div class="cards" id="cards"></div>
+    <p class="wrap sample">Sample reviews. Replace them with your clients' real words, or paste in your Google reviews.</p>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap faq-grid">
+      <div class="sec-head"><h2>Before you <em>come</em></h2></div>
+      <div>
+        <details open><summary>How should I prepare my hair for braids?</summary><p>Come with your hair washed, detangled and blown out, unless you've booked a wash with us. Clean, stretched hair means neater parts and a faster appointment.</p></details>
+        <details><summary>Is braiding hair included?</summary><p class="ph-note">Placeholder: say whether braiding hair is included in the price or brought by the client, and which brands and colors you stock.</p></details>
+        <details><summary>Do you take a deposit?</summary><p class="ph-note">Placeholder: your deposit amount, how to pay it, and your cancellation or lateness policy.</p></details>
+        <details><summary>How long will my braids last?</summary><p>Usually four to eight weeks. Sleep in a silk or satin scarf, oil your scalp lightly, and go easy on edge control between visits.</p></details>
+        <details><summary>Can I order a custom macramé or crochet piece?</summary><p>Yes. Send a photo or idea on WhatsApp with your colors and size. <span class="ph-note">Placeholder: add your usual lead time.</span></p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap">
+      <div class="book-card">
+        <div class="side">
+          <h2>Book your <em>glow.</em></h2>
+          <p>Pick a service and a time that suits you. Your request opens in WhatsApp, ready to send, and we'll reply to confirm.</p>
+          <div class="contact">
+            <span class="lbl">WhatsApp</span>
+            <div class="num"><a data-wa="Hello Perfect Hands Artistry!" target="_blank" rel="noopener">026 202 1141</a></div>
+            <span class="lbl">Calls</span>
+            <div class="num"><a href="tel:+233503494974">050 349 4974</a></div>
+            <span class="lbl">Find us</span>
+            <p class="addr">Ayi Mensah, Mango Farms 2nd</p>
+            <a class="dir" href="https://www.google.com/maps/search/?api=1&amp;query=Ayi+Mensah+Mango+Farms" target="_blank" rel="noopener">Get directions</a>
+          </div>
+          <div class="hours">
+            <span class="status" id="status" aria-live="polite"><i></i><span>Checking hours…</span></span>
+            <dl id="hoursList"></dl>
+            <small>Placeholder hours.</small>
+          </div>
+        </div>
+        <form id="bookForm" novalidate>
+          <div class="field"><label for="fName">Your name</label><input id="fName" autocomplete="name" placeholder="Abena Mensah"></div>
+          <div class="field"><label for="fService">Service</label><select id="fService"></select></div>
+          <div class="field"><label for="fDate">Preferred date</label><input id="fDate" type="date"></div>
+          <div class="field"><label for="fTime">Preferred time</label><input id="fTime" type="time" value="10:00"></div>
+          <div class="field full"><label for="fNotes">Anything we should know?</label><textarea id="fNotes" placeholder="Length, color, inspiration photos, event date…"></textarea></div>
+          <div class="form-foot">
+            <a class="btn" id="sendWa" target="_blank" rel="noopener">Send on WhatsApp</a>
+            <small>Nothing is sent until you press send inside WhatsApp.</small>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <img class="foot-logo" src="assets/logo.webp" alt="Perfect Hands Artistry" width="640" height="704" loading="lazy" decoding="async">
+      <div class="foot-row">
+        <span>Ayi Mensah, Mango Farms 2nd · Calls 050 349 4974 · WhatsApp 026 202 1141</span>
+        <span><a href="https://www.instagram.com/perfecthandsartistry/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.instagram.com/perfecthandsartistry_haircare/" target="_blank" rel="noopener">Hair care</a> · <a href="https://www.instagram.com/perfecthandsartistry_crafts/" target="_blank" rel="noopener">Crafts</a> · <a data-wa="Hello Perfect Hands Artistry!" target="_blank" rel="noopener">WhatsApp</a></span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<div class="mbar wrap" id="mbar">
+  <a class="btn" data-wa="Hello Perfect Hands Artistry! I'd like to book an appointment." target="_blank" rel="noopener">Book on WhatsApp</a>
+</div>
+
+<script>
+(() => {
+  /* ===== Edit your details here ===== */
+  const WA = "233262021141"; // WhatsApp number: country code, no + or spaces
+  const HOURS = { 0: [13, 18], 1: null, 2: [9, 19], 3: [9, 19], 4: [9, 19], 5: [9, 20], 6: [8, 20] }; // day: [open, close] 24h; null = closed
+  const SERVICES = ["Stitch braids", "Knotless braids", "Kids' braids", "Boho braids", "Cornrows", "Twists", "Crochet braids", "Silk press", "Wig install", "Soft glam makeup", "Bridal makeup", "Photoshoot makeup", "Makeup lesson", "Custom crochet piece", "Macramé bag / sandals / accessory", "Hair care products", "Training course"];
+  const REVIEWS = [
+    ["My knotless braids lasted eight weeks and still looked fresh. Gentle hands, no headache. I won't go anywhere else.", "Client name", "Knotless braids"],
+    ["She did my bridal makeup and I cried, then laughed, and it didn't move once. The photos are everything.", "Client name", "Bridal makeup"],
+    ["Everyone asks where my macramé bag is from. Now I just send them her number.", "Client name", "Macramé tote"]
+  ];
+  /* ================================== */
+
+  const waLink = (t) => `https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const esc = (t) => t.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  /* booking select */
+  $("#fService").innerHTML = SERVICES.map(n => `<option>${esc(n)}</option>`).join("");
+
+  /* reviews */
+  const star = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.5 2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8Z"/></svg>';
+  $("#cards").innerHTML = REVIEWS.map(([q, n, s]) => `<article class="review"><div class="stars" role="img" aria-label="5 out of 5 stars">${star.repeat(5)}</div><blockquote>“${esc(q)}”</blockquote><div class="who"><span class="av" aria-hidden="true">${esc(n[0])}</span><span><b>${esc(n)}</b>${esc(s)}</span></div></article>`).join("");
+
+  $$("[data-wa]").forEach(a => a.href = waLink(a.dataset.wa));
+
+  /* hero video: portrait cut for phones, landscape for wide screens */
+  const vid = $("#heroVid"), toggle = $("#vidToggle"), wide = innerWidth / innerHeight > 1;
+  const poster = wide ? "assets/hero-poster-wide.webp" : "assets/hero-poster.webp";
+  $(".hero .poster").src = poster;
+  const setToggle = (playing) => { toggle.setAttribute("aria-label", playing ? "Pause background video" : "Play background video"); toggle.innerHTML = playing ? '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h3v14H7zM14 5h3v14h-3z"/></svg>' : '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>'; };
+  if (reduce) { toggle.hidden = true; vid.remove(); }
+  else {
+    vid.poster = poster;
+    vid.src = wide ? "assets/hero-wide.mp4" : "assets/hero-tall.mp4";
+    const p = vid.play(); if (p) p.then(() => setToggle(true), () => setToggle(false));
+    toggle.addEventListener("click", () => { if (vid.paused) { vid.play(); setToggle(true); } else { vid.pause(); setToggle(false); } });
+  }
+
+  /* mobile menu */
+  const sheet = $("#sheet"), openBtn = $("#menuOpen");
+  const setMenu = (open) => { sheet.hidden = !open; openBtn.setAttribute("aria-expanded", open); document.body.style.overflow = open ? "hidden" : ""; (open ? $("#menuClose") : openBtn).focus(); };
+  openBtn.addEventListener("click", () => setMenu(true));
+  $("#menuClose").addEventListener("click", () => setMenu(false));
+  addEventListener("keydown", e => { if (e.key === "Escape" && !sheet.hidden) setMenu(false); });
+  $$("#sheet a").forEach(a => a.addEventListener("click", () => { if (!sheet.hidden) setMenu(false); }));
+
+  /* services swipe progress */
+  const rail = $("#rail"), n = $$(".svc").length;
+  rail.addEventListener("scroll", () => {
+    const p = rail.scrollLeft / ((rail.scrollWidth - rail.clientWidth) || 1);
+    $("#swipeBar").style.transform = `translateX(${p * 400}%)`;
+    $("#swipeCount").textContent = `${Math.min(n, Math.round(p * (n - 1)) + 1)} / ${n}`;
+  }, { passive: true });
+
+  /* opening hours */
+  const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const fmt = (h) => `${((h + 11) % 12) + 1}${h < 12 ? "am" : "pm"}`;
+  const now = new Date(), today = now.getDay(), hr = now.getHours() + now.getMinutes() / 60;
+  $("#hoursList").innerHTML = [1, 2, 3, 4, 5, 6, 0].map(d => { const t = d === today ? ' class="today"' : ""; return `<dt${t}>${DAYS[d]}</dt><dd${t}>${HOURS[d] ? fmt(HOURS[d][0]) + " – " + fmt(HOURS[d][1]) : "Closed"}</dd>`; }).join("");
+  const openNow = !!HOURS[today] && hr >= HOURS[today][0] && hr < HOURS[today][1];
+  let next = "";
+  if (!openNow) for (let i = 0; i < 8; i++) { const d = (today + i) % 7, h = HOURS[d]; if (h && (i > 0 || hr < h[0])) { next = `opens ${i === 0 ? "today" : i === 1 ? "tomorrow" : DAYS[d]} at ${fmt(h[0])}`; break; } }
+  $("#status").classList.toggle("closed", !openNow);
+  $("#status span").textContent = openNow ? `Open now · until ${fmt(HOURS[today][1])}` : `Closed · ${next.charAt(0).toUpperCase() + next.slice(1)}`;
+  $("#heroStatus").textContent = openNow ? `Open today until ${fmt(HOURS[today][1])} · Book on WhatsApp` : `Closed now, ${next} · Message us anytime`;
+
+  /* booking -> WhatsApp */
+  const f = (id) => $("#" + id).value.trim(), send = $("#sendWa");
+  const updateMsg = () => {
+    const lines = ["Hello Perfect Hands Artistry! I'd like to book an appointment.", "", `Name: ${f("fName") || "-"}`, `Service: ${f("fService")}`, `Date: ${f("fDate") || "Flexible"}`, `Time: ${f("fTime") || "Flexible"}`];
+    if (f("fNotes")) lines.push(`Notes: ${f("fNotes")}`);
+    send.href = waLink(lines.join("\n"));
+  };
+  ["input", "change"].forEach(ev => $("#bookForm").addEventListener(ev, updateMsg));
+  $("#bookForm").addEventListener("submit", e => e.preventDefault());
+  try { $("#fDate").min = new Date().toISOString().slice(0, 10); } catch (e) {}
+  updateMsg();
+
+  /* nav + sticky booking bar */
+  const nav = $("#nav"), mbar = $("#mbar"), hero = $(".hero"), book = $("#book");
+  const onScroll = () => {
+    nav.classList.toggle("scrolled", scrollY > hero.offsetHeight - 80);
+    const r = book.getBoundingClientRect();
+    mbar.classList.toggle("on", scrollY > hero.offsetHeight * .6 && !(r.top < innerHeight && r.bottom > 0));
+  };
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  /* the braided champagne thread, drawn as you scroll */
+  const main = $("main"), thread = $(".thread");
+  let paths = [], lens = [];
+  const draw = () => {
+    if (reduce) return;
+    const prog = Math.min(1, scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight) * 1.05);
+    paths.forEach((p, i) => p.style.strokeDashoffset = lens[i] * (1 - prog));
+  };
+  const build = () => {
+    const W = main.offsetWidth, H = main.scrollHeight, top = hero.offsetHeight, amp = W < 700 ? 5 : 10;
+    thread.setAttribute("viewBox", `0 0 ${W} ${H}`); thread.style.height = H + "px";
+    thread.querySelectorAll("path").forEach(p => p.remove());
+    paths = [0, 1, 2].map(s => {
+      let d = "";
+      for (let y = top; y <= H; y += 14) d += (y === top ? "M" : "L") + (W * .5 + W * .44 * Math.sin(y / (W < 700 ? 900 : 1300) + .9) + amp * Math.sin(y / 38 + s * 2.094)).toFixed(1) + " " + y + " ";
+      const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      p.setAttribute("d", d); p.setAttribute("stroke", "url(#goldGrad)");
+      p.setAttribute("stroke-width", s === 1 ? 1.8 : 1.2); p.setAttribute("opacity", s === 1 ? .6 : .35);
+      thread.append(p); return p;
+    });
+    lens = paths.map(p => p.getTotalLength());
+    if (!reduce) paths.forEach((p, i) => p.style.strokeDasharray = lens[i]);
+    draw();
+  };
+  let raf = 0;
+  addEventListener("scroll", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(draw); }, { passive: true });
+  let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(build, 200); });
+  addEventListener("load", build);
+  document.fonts && document.fonts.ready.then(build);
+  build();
+})();
+</script>
