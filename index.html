@@ -139,7 +139,6 @@ main > section, main > footer, main > div { position: relative; z-index: 1; }
 .hero h1 { font-size: clamp(46px, 7.4vw + 14px, 128px); line-height: 1; letter-spacing: -.01em; }
 .hero h1 em { color: var(--champ); font-size: 1.22em; }
 .hero p { max-width: 30em; margin: 34px 0 26px; font-size: clamp(17px, 1.3vw, 19px); color: rgba(255,248,245,.9); }
-.hero .tagline { margin: 0 0 16px; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--champ); }
 .hero-cta { display: grid; gap: 12px; }
 .hero .meta { margin-top: 18px; font-size: 14px; color: rgba(255,248,245,.78); display: flex; align-items: center; gap: 10px; }
 .hero .meta i { width: 7px; height: 7px; border-radius: 50%; background: #9BC59D; flex: none; }
@@ -390,8 +389,7 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
     <img class="poster" src="assets/hero-poster.webp" alt="" width="720" height="1080" fetchpriority="high">
     <video id="heroVid" muted loop playsinline preload="none" aria-hidden="true"></video>
     <div class="wrap hero-copy">
-      <p class="rise tagline">When passion meets creativity</p>
-      <h1 class="rise">Your hair, in <em>perfect</em> hands.</h1>
+      <h1 class="rise">When passion meets <em>creativity.</em></h1>
       <p class="rise">Braids, makeup, our own hair care range, and handmade crochet and macramé, done with care in our Ayi Mensah studio.</p>
       <div class="hero-cta rise">
         <a class="btn light" data-wa="Hello Perfect Hands Artistry! I'd like to book an appointment." target="_blank" rel="noopener">
@@ -556,7 +554,6 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
           <div class="hours">
             <span class="status" id="status" aria-live="polite"><i></i><span>Checking hours…</span></span>
             <dl id="hoursList"></dl>
-            <small>Placeholder hours.</small>
           </div>
         </div>
         <form id="bookForm" novalidate>
