@@ -81,7 +81,8 @@ main > section, main > footer, main > div { position: relative; z-index: 1; }
 }
 .nav.scrolled { background: var(--deep); color: var(--on-dark); border-bottom-color: rgba(226,192,138,.22); box-shadow: 0 8px 24px -16px rgba(42,21,24,.6); }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
-.brand .logo { width: auto; height: 70px; flex: none; }
+.brand .logo { width: auto; height: 70px; flex: none; transition: height .35s cubic-bezier(.2,.8,.2,1); }
+.nav.scrolled .brand .logo { height: 46px; }
 .nav ul { display: none; gap: 30px; list-style: none; margin: 0; padding: 0; }
 .nav ul a { text-decoration: none; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
 .nav ul a:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-color: var(--gold); }
@@ -92,6 +93,7 @@ main > section, main > footer, main > div { position: relative; z-index: 1; }
 .menu-btn i::after { width: 70%; justify-self: end; }
 @media (min-width: 900px) {
   .brand .logo { height: 96px; }
+  .nav.scrolled .brand .logo { height: 58px; }
   .nav ul { display: flex; }
   .nav .btn.book-top { display: inline-flex; }
   .menu-btn { display: none; }
@@ -312,6 +314,7 @@ footer { background: var(--deep); color: var(--on-dark); padding-block: 44px cal
 @media (min-width: 900px) { footer { padding-block: 44px calc(30px + env(safe-area-inset-bottom, 0px)); } .foot-logo { width: 300px; } .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 40px; } }
 
 @media (prefers-reduced-motion: reduce) {
+  .brand .logo { transition: none; }
   html { scroll-behavior: auto; }
   .hero .rise { animation: none; }
   .mbar { transition: none; }
