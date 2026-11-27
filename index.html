@@ -79,7 +79,7 @@ main > section, main > footer, main > div { position: relative; z-index: 1; }
   transition: background-color .4s, color .4s, border-color .4s; border-bottom: 1px solid transparent;
   background: linear-gradient(rgba(42,21,24,.6), rgba(42,21,24,0));
 }
-.nav.scrolled { background: var(--bg); color: var(--ink); border-bottom-color: var(--line); }
+.nav.scrolled { background: var(--deep); color: var(--on-dark); border-bottom-color: rgba(226,192,138,.22); box-shadow: 0 8px 24px -16px rgba(42,21,24,.6); }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
 .brand .logo { width: auto; height: 70px; flex: none; }
 .nav ul { display: none; gap: 30px; list-style: none; margin: 0; padding: 0; }
@@ -98,14 +98,15 @@ main > section, main > footer, main > div { position: relative; z-index: 1; }
 }
 
 /* mobile menu */
-.sheet { position: fixed; inset: 0; z-index: 80; background: var(--bg); color: var(--ink); padding-top: calc(env(safe-area-inset-top, 0px) + 12px); padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 24px); display: flex; flex-direction: column; gap: 24px; overflow-y: auto; }
+.sheet { position: fixed; inset: 0; z-index: 80; background: var(--deep); color: var(--on-dark); padding-top: calc(env(safe-area-inset-top, 0px) + 12px); padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 24px); display: flex; flex-direction: column; gap: 24px; overflow-y: auto; }
 .sheet:not([hidden]) { animation: sheetIn .45s cubic-bezier(.2,.8,.2,1); }
 @keyframes sheetIn { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
 .sheet-top { display: flex; justify-content: space-between; align-items: center; }
 .sheet nav { display: grid; gap: 2px; margin-top: 3vh; }
 .sheet nav a { font: 400 clamp(36px, 10vw, 60px)/1.2 var(--display); text-decoration: none; padding-block: 4px; }
-.sheet .btn { align-self: stretch; margin-top: auto; }
-.close-btn { min-height: 44px; background: none; border: 0; color: var(--ink); cursor: pointer; font: 400 12px var(--body); letter-spacing: .24em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 10px; padding: 0 4px 0 12px; }
+.sheet .btn { align-self: stretch; margin-top: auto; background: var(--champ); border-color: var(--champ); color: var(--deep); }
+.sheet nav a:hover, .sheet nav a:active { color: var(--champ); }
+.close-btn { min-height: 44px; background: none; border: 0; color: var(--on-dark); cursor: pointer; font: 400 12px var(--body); letter-spacing: .24em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 10px; padding: 0 4px 0 12px; }
 .close-btn svg { width: 22px; height: 22px; }
 
 /* sticky booking bar (phones) */

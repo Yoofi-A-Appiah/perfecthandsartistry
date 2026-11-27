@@ -20,6 +20,15 @@
         ],
         "createdAt": "2026-11-26T23:58:43.814Z",
         "reason": "Agent: .about and .notes bands have padding-block 72px+ and their .wrap child applies max(18px, safe-area) side gutters; detector checks the section box, not the inset child"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-27T00:48:10.101Z",
+        "reason": "User confirmed: chose the 'Blush & champagne' palette (pearl blush #F8EDEA background) when asked to pick a palette"
       }
     ]
   }
